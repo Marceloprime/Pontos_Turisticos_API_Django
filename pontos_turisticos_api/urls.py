@@ -27,7 +27,7 @@ from localizacao.api.viewsets import LocalizacaoViewSet
 
 
 router = routers.DefaultRouter()
-router.register(r'ponto',PontoTuristicoViewSet)
+router.register(r'ponto',PontoTuristicoViewSet, basename='PontoTuristico')
 router.register(r'atracoes',AtracaoViewSet)
 router.register(r'avaliacoes',AvaliacaoViewSet)
 router.register(r'comment',ComentarioViewSet)
