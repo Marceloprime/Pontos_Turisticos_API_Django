@@ -3,15 +3,18 @@ from rest_framework.response import Response
 from pontos_turisticos.models import PontoTuristico
 from .serializers import PontoTuristicoSerializer
 from rest_framework.decorators import action
-import django_filters.rest_framework
+from rest_framework.filters import SearchFilter
+
 
 
 class PontoTuristicoViewSet(ModelViewSet):
     queryset = PontoTuristico.objects.all() #caso queira filtrar uma  busca se pode usar filter seguido pela condicao exemplo .filter(aprovados=true)
     serializer_class =  PontoTuristicoSerializer
+    filter_backends = (SearchFilter,)
+    search_fields = ('nome','id')
 
     def get_queryset(self):
-        return PontoTuristico.objects.filter(aprovado=True) #retornar so os aprovados
+        return PontoTuristico.objects.filter() #retornar so os aprovados
   
     def list(self, request, *args, **kwargs):
         return super(PontoTuristicoViewSet, self).list(request, *args, **kwargs)
