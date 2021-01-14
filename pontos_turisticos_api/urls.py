@@ -18,6 +18,8 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
+from django.conf import settings
+from django.conf.urls.static import static
 
 from pontos_turisticos.api.viewsets import PontoTuristicoViewSet
 from atracoes.api.viewsets import AtracaoViewSet
@@ -37,4 +39,4 @@ router.register(r'localization',LocalizacaoViewSet)
 urlpatterns = [
     path('',include(router.urls)),
     url(r'^admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
