@@ -74,8 +74,6 @@ ply==3.11
 prometheus-client==0.9.0
 prompt-toolkit==1.0.18
 protobuf==3.13.0
-psycopg2==2.7.3.2
-psycopg2-binary==2.8.6
 ptyprocess==0.7.0
 pyexcel==0.5.15
 pyexcel-io==0.5.20
